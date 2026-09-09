@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interview English — Fix the Pattern</title>
+<style>
+  :root{
+    --bg:#EDF1EE;
+    --paper:#FFFFFF;
+    --ink:#1B2B29;
+    --ink-soft:#4B5D59;
+    --rule:#D8DED9;
+    --teal:#2F6F5E;
+    --teal-deep:#1F4D40;
+    --gold:#A9782E;
+    --good:#2F6F5E;
+    --good-bg:#E5F0EA;
+    --bad:#9C3B2E;
+    --bad-bg:#F6E7E3;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Segoe UI", system-ui, -apple-system, sans-serif;
+    line-height:1.5;
+    padding:40px 20px 80px;
+  }
+  .page{
+    max-width:760px;
+    margin:0 auto;
+  }
+  header.brief{
+    border-bottom:2px solid var(--ink);
+    padding-bottom:22px;
+    margin-bottom:28px;
+  }
+  header.brief h1{
+    font-family:Georgia,"Iowan Old Style","Palatino Linotype",serif;
+    font-size:2rem;
+    font-weight:normal;
+    margin:0 0 8px;
+    color:var(--ink);
+  }
+  header.brief p{
+    margin:0;
+    color:var(--ink-soft);
+    font-size:0.98rem;
+    max-width:58ch;
+  }
+
+  nav.tabs{
+    display:flex;
+    gap:0;
+    border-bottom:1px solid var(--rule);
+    margin-bottom:30px;
+  }
+  nav.tabs button{
+    font-family:inherit;
+    font-size:0.95rem;
+    background:none;
+    border:none;
+    padding:12px 4px;
+    margin-right:28px;
+    color:var(--ink-soft);
+    cursor:pointer;
+    border-bottom:2px solid transparent;
+    position:relative;
+    top:1px;
+  }
+  nav.tabs button .num{
+    font-family:Georgia,serif;
+    font-style:italic;
+    color:var(--gold);
+    margin-right:6px;
+  }
+  nav.tabs button.active{
+    color:var(--ink);
+    border-bottom:2px solid var(--teal);
+  }
+
+  section.task{ display:none; }
+  section.task.active{ display:block; }
+
+  .task-head{ margin-bottom:22px; }
+  .task-head h2{
+    font-family:Georgia,serif;
+    font-weight:normal;
+    font-size:1.4rem;
+    margin:0 0 6px;
+  }
+  .task-head p{
+    color:var(--ink-soft);
+    margin:0;
+    font-size:0.95rem;
+  }
+
+  .bank{
+    background:var(--paper);
+    border:1px solid var(--rule);
+    border-left:3px solid var(--teal);
+    padding:14px 18px;
+    margin-bottom:24px;
+    font-size:0.95rem;
+  }
+  .bank strong{ color:var(--teal-deep); }
+  .bank .words{ font-family:Georgia,serif; font-style:italic; }
+
+  .item{
+    background:var(--paper);
+    border:1px solid var(--rule);
+    padding:18px 20px;
+    margin-bottom:14px;
+  }
+  .item .original{
+    color:var(--ink-soft);
+    font-size:0.85rem;
+    margin:0 0 10px;
+    text-transform:none;
+  }
+  .item .original em{ color:var(--bad); font-style:normal; border-bottom:1px dotted var(--bad); }
+  .sentence{
+    font-size:1.05rem;
+  }
+  .sentence input[type=text]{
+    font-family:inherit;
+    font-size:1rem;
+    border:none;
+    border-bottom:2px solid var(--teal);
+    background:transparent;
+    padding:2px 4px;
+    width:110px;
+    text-align:center;
+    color:var(--ink);
+  }
+  .sentence input[type=text]:focus{ outline:none; border-bottom-color:var(--gold); }
+  .sentence input[type=text].correct{ background:var(--good-bg); border-bottom-color:var(--good); }
+  .sentence input[type=text].incorrect{ background:var(--bad-bg); border-bottom-color:var(--bad); }
+
+  .hidden-tip{
+    display:none;
+    margin-top:8px;
+    padding:8px 10px;
+    background:var(--bg);
+    border-left:2px solid var(--gold);
+    color:var(--ink-soft);
+    font-size:0.84rem;
+  }
+  .tip-toggle{
+    margin-top:8px;
+    font-family:inherit;
+    font-size:0.82rem;
+    background:none;
+    border:none;
+    color:var(--teal-deep);
+    text-decoration:underline;
+    cursor:pointer;
+    padding:0;
+  }
+  .hidden-tip.show{ display:block; }
+
+  .feedback{
+    display:none;
+    margin-top:8px;
+    font-size:0.88rem;
+  }
+  .feedback.show{ display:block; }
+  .feedback.correct-msg{ color:var(--good); }
+  .feedback.incorrect-msg{ color:var(--bad); }
+
+  .controls{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    margin-top:24px;
+    flex-wrap:wrap;
+  }
+  button.action{
+    font-family:inherit;
+    font-size:0.9rem;
+    background:var(--teal);
+    color:#fff;
+    border:none;
+    padding:10px 18px;
+    cursor:pointer;
+  }
+  button.action:hover{ background:var(--teal-deep); }
+  button.action.secondary{
+    background:transparent;
+    color:var(--teal-deep);
+    border:1px solid var(--teal);
+  }
+  button.action.secondary:hover{ background:var(--good-bg); }
+
+  .score{
+    margin-left:auto;
+    font-size:0.9rem;
+    color:var(--ink-soft);
+  }
+  .score strong{ color:var(--ink); }
+
+  .practice-field{
+    margin-top:14px;
+    padding-top:12px;
+    border-top:1px dashed var(--rule);
+  }
+  .practice-field label{
+    display:block;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    margin-bottom:6px;
+  }
+  .practice-field textarea{
+    width:100%;
+    font-family:inherit;
+    font-size:1rem;
+    padding:8px 10px;
+    border:1px solid var(--rule);
+    resize:vertical;
+    min-height:40px;
+    color:var(--ink);
+  }
+
+  /* Task 3 - open rewrite items */
+  .rewrite-item textarea{
+    width:100%;
+    font-family:inherit;
+    font-size:1rem;
+    padding:10px 12px;
+    border:1px solid var(--rule);
+    border-top:none;
+    resize:vertical;
+    min-height:44px;
+    color:var(--ink);
+  }
+  .rewrite-item .reveal-btn{
+    font-family:inherit;
+    font-size:0.85rem;
+    background:none;
+    border:none;
+    color:var(--teal-deep);
+    text-decoration:underline;
+    cursor:pointer;
+    padding:8px 0 0;
+  }
+  .model-answer{
+    display:none;
+    margin-top:10px;
+    padding:12px 16px;
+    background:var(--good-bg);
+    border-left:3px solid var(--good);
+    font-size:0.95rem;
+  }
+  .model-answer.show{ display:block; }
+  .model-answer .label{
+    font-size:0.78rem;
+    letter-spacing:0.02em;
+    color:var(--teal-deep);
+    display:block;
+    margin-bottom:4px;
+  }
+  .model-answer .why{
+    color:var(--ink-soft);
+    font-size:0.88rem;
+    margin-top:6px;
+  }
+
+  footer.note{
+    margin-top:40px;
+    padding-top:16px;
+    border-top:1px solid var(--rule);
+    color:var(--ink-soft);
+    font-size:0.85rem;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="brief">
+    <h1>Interview English — Fix the Pattern</h1>
+    <p>Three short tasks built from your own interview answers. Each one drills a single pattern so it stops repeating.</p>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab-btn active" data-tab="t1"><span class="num">I.</span>Prepositions</button>
+    <button class="tab-btn" data-tab="t2"><span class="num">II.</span>Verb Agreement</button>
+    <button class="tab-btn" data-tab="t3"><span class="num">III.</span>Sound More Natural</button>
+  </nav>
+
+  <!-- TASK 1: PREPOSITIONS -->
+  <section class="task active" id="t1">
+    <div class="task-head">
+      <h2>Task I — Prepositions</h2>
+      <p>Fill in the missing preposition. Same three prepositions are reused below — check the box if you're not sure which one fits.</p>
+    </div>
+
+    <div class="bank"><strong>Word bank:</strong> <span class="words">at &nbsp;·&nbsp; for &nbsp;·&nbsp; on</span></div>
+
+    <div class="item" data-answer="at,for">
+      <p class="original">You said: <em>"I work on my current company."</em></p>
+      <button class="tip-toggle" onclick="toggleTip(this)">Show tip</button>
+      <div class="hidden-tip">Wrong tense, "current" is unnatural, and no real company name. Either <em>at</em> or <em>for</em> works here.</div>
+      <p class="sentence">I'm working <input type="text" maxlength="6" autocomplete="off"> Google now.</p>
+      <p class="feedback"></p>
+      <div class="practice-field">
+        <label>Your turn — write one sentence about your real job with this structure:</label>
+        <textarea rows="2" placeholder="I'm working at/for ... as a ..."></textarea>
+      </div>
+    </div>
+
+    <div class="item" data-answer="at">
+      <p class="original">You said: <em>"I'm good for problem-solving."</em></p>
+      <p class="sentence">I'm good <input type="text" maxlength="6" autocomplete="off"> problem-solving.</p>
+      <p class="feedback"></p>
+      <div class="practice-field">
+        <label>Your turn — write one sentence about your real job with this structure:</label>
+        <textarea rows="2" placeholder="I'm good at ..."></textarea>
+      </div>
+    </div>
+
+    <div class="item" data-answer="for">
+      <p class="original">You said: <em>"I've been working for Google about 9 years."</em> (missing word)</p>
+      <p class="sentence">I've been working for Google <input type="text" maxlength="6" autocomplete="off"> about 9 years.</p>
+      <p class="feedback"></p>
+      <div class="practice-field">
+        <label>Your turn — write one sentence about your real job with this structure:</label>
+        <textarea rows="2" placeholder="I've been working ... for/about ..."></textarea>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="action" onclick="checkTask('t1')">Check answers</button>
+      <button class="action secondary" onclick="resetTask('t1')">Reset</button>
+      <span class="score" id="score-t1"></span>
+    </div>
+  </section>
+
+  <!-- TASK 2: ARTICLES & AGREEMENT -->
+  <section class="task" id="t2">
+    <div class="task-head">
+      <h2>Task II — Verb Agreement &amp; Tense</h2>
+      <p>Type the correction. For the last item, don't just fix "were" — think about which tense is actually needed for something that started 3 years ago and is still true.</p>
+    </div>
+
+    <div class="item" data-answer="were">
+      <p class="original">You said: <em>"They was unpredictable."</em></p>
+      <p class="sentence">They <input type="text" maxlength="6" autocomplete="off"> unpredictable.</p>
+      <p class="feedback"></p>
+    </div>
+
+    <div class="item" data-answer="knows">
+      <p class="original">You said: <em>"He know what to do."</em></p>
+      <p class="sentence">He <input type="text" maxlength="8" autocomplete="off"> what to do.</p>
+      <p class="feedback"></p>
+    </div>
+
+    <div class="item" data-answer="have been working,was working">
+      <p class="original">You said: <em>"For the last 3 years I were working..."</em></p>
+      <p class="sentence">For the last 3 years, I <input type="text" size="20" maxlength="24" autocomplete="off">.</p>
+      <p class="feedback"></p>
+    </div>
+
+    <div class="controls">
+      <button class="action" onclick="checkTask('t2')">Check answers</button>
+      <button class="action secondary" onclick="resetTask('t2')">Reset</button>
+      <span class="score" id="score-t2"></span>
+    </div>
+  </section>
+
+  <!-- TASK 3: NATURAL REPHRASING -->
+  <section class="task" id="t3">
+    <div class="task-head">
+      <h2>Task III — Sound More Natural</h2>
+      <p>These aren't grammar mistakes — they're just not how a confident interview answer sounds. Rewrite each one your own way first, then reveal the model answer and compare.</p>
+    </div>
+
+    <div class="item rewrite-item">
+      <p class="original">You said: <em>"For short-term / long-term plan..."</em></p>
+      <textarea rows="1" placeholder="Rewrite it here..."></textarea>
+      <button class="reveal-btn" onclick="toggleModel(this)">Show model answer</button>
+      <div class="model-answer">
+        <span class="label">Model answer</span>
+        My short-term goal is... / My long-term goal is...
+        <div class="why">State it as your own goal, not a fragment — "plan for" needs a person and a verb attached to it.</div>
+      </div>
+    </div>
+
+    <div class="item rewrite-item">
+      <p class="original">You said: <em>"for now I think I can..."</em></p>
+      <textarea rows="1" placeholder="Rewrite it here..."></textarea>
+      <button class="reveal-btn" onclick="toggleModel(this)">Show model answer</button>
+      <div class="model-answer">
+        <span class="label">Model answer</span>
+        I can currently...
+        <div class="why">"For now" sounds unnatural here — use "currently" instead. "I think I can" also sounds unsure, so state the ability directly.</div>
+      </div>
+    </div>
+
+    <div class="item rewrite-item">
+      <p class="original">You said: <em>"I can't adapt to team."</em> — "can't" sounds too negative for an interview.</p>
+      <textarea rows="1" placeholder="Rewrite it here..."></textarea>
+      <button class="reveal-btn" onclick="toggleModel(this)">Show model answer</button>
+      <div class="model-answer">
+        <span class="label">Model answer</span>
+        It's hard for me to adapt to new changes quickly.
+        <div class="why">"I can't" sounds like a hard limit. Framing it as something that takes effort ("it's hard for me to...") is honest without sounding like a dealbreaker.</div>
+      </div>
+    </div>
+
+    <div class="item rewrite-item">
+      <p class="original">You said: <em>"I very fast do something."</em></p>
+      <textarea rows="1" placeholder="Rewrite it here..."></textarea>
+      <button class="reveal-btn" onclick="toggleModel(this)">Show model answer</button>
+      <div class="model-answer">
+        <span class="label">Model answer</span>
+        I do things very quickly. / I pick things up very fast.
+        <div class="why">The adverb goes after the verb (or verb + object), not before it.</div>
+      </div>
+    </div>
+
+    <div class="item rewrite-item">
+      <p class="original">You said: <em>"I prefer if I take 120K a year."</em></p>
+      <textarea rows="1" placeholder="Rewrite it here..."></textarea>
+      <button class="reveal-btn" onclick="toggleModel(this)">Show model answer</button>
+      <div class="model-answer">
+        <span class="label">Model answer</span>
+        I'd prefer a salary of 120K a year. / I'd prefer to earn 120K a year.
+        <div class="why">"Prefer if" isn't a real structure here — use "prefer + noun" or "prefer to + verb."</div>
+      </div>
+    </div>
+
+    <div class="item rewrite-item">
+      <p class="original">You said: <em>"some person can quickly change..."</em></p>
+      <textarea rows="1" placeholder="Rewrite it here..."></textarea>
+      <button class="reveal-btn" onclick="toggleModel(this)">Show model answer</button>
+      <div class="model-answer">
+        <span class="label">Model answer</span>
+        People who can quickly adapt... / Someone who adapts quickly...
+        <div class="why">"Some person" sounds vague and slightly odd. For a general experience, use "people"; if you mean one person, use "a person who" or "someone who".</div>
+      </div>
+    </div>
+
+    <div class="item rewrite-item">
+      <p class="original">You said: <em>"lovely team"</em></p>
+      <textarea rows="1" placeholder="Rewrite it here..."></textarea>
+      <button class="reveal-btn" onclick="toggleModel(this)">Show model answer</button>
+      <div class="model-answer">
+        <span class="label">Model answer</span>
+        a great team / a fantastic team / my favourite team
+        <div class="why">Not wrong — just too soft/informal for this context. "Lovely" reads as personal warmth rather than professional praise.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="note">Built from your interview answers — corrections are personal, not generic textbook examples.</footer>
+</div>
+
+<script>
+  // Tab switching
+  document.querySelectorAll('.tab-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.task').forEach(s=>s.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  function normalize(str){
+    return str.trim().toLowerCase().replace(/\s+/g,' ').replace(/['’]/g,"'");
+  }
+
+  function checkTask(taskId){
+    const section = document.getElementById(taskId);
+    const items = section.querySelectorAll('.item[data-answer]');
+    let correctCount = 0;
+
+    items.forEach(item=>{
+      const input = item.querySelector('input[type=text]');
+      const feedback = item.querySelector('.feedback');
+      const accepted = item.dataset.answer.split(',').map(a=>normalize(a));
+      const userVal = normalize(input.value);
+
+      input.classList.remove('correct','incorrect');
+      feedback.classList.remove('show','correct-msg','incorrect-msg');
+
+      if(userVal.length === 0){
+        feedback.textContent = 'No answer entered.';
+        feedback.classList.add('show','incorrect-msg');
+        input.classList.add('incorrect');
+        return;
+      }
+
+      if(accepted.includes(userVal)){
+        input.classList.add('correct');
+        feedback.textContent = 'Correct.';
+        feedback.classList.add('show','correct-msg');
+        correctCount++;
+      } else {
+        input.classList.add('incorrect');
+        feedback.textContent = 'Not quite — correct answer: ' + item.dataset.answer.split(',')[0];
+        feedback.classList.add('show','incorrect-msg');
+      }
+    });
+
+    document.getElementById('score-'+taskId).innerHTML =
+      'Score: <strong>' + correctCount + ' / ' + items.length + '</strong>';
+  }
+
+  function resetTask(taskId){
+    const section = document.getElementById(taskId);
+    section.querySelectorAll('input[type=text]').forEach(i=>{
+      i.value='';
+      i.classList.remove('correct','incorrect');
+    });
+    section.querySelectorAll('.feedback').forEach(f=>{
+      f.classList.remove('show','correct-msg','incorrect-msg');
+      f.textContent='';
+    });
+    document.getElementById('score-'+taskId).innerHTML='';
+  }
+
+  function toggleTip(btn){
+    const box = btn.nextElementSibling;
+    const isShown = box.classList.toggle('show');
+    btn.textContent = isShown ? 'Hide tip' : 'Show tip';
+  }
+
+  function toggleModel(btn){
+    const box = btn.nextElementSibling;
+    const isShown = box.classList.toggle('show');
+    btn.textContent = isShown ? 'Hide model answer' : 'Show model answer';
+  }
+</script>
+
+</body>
+</html>
