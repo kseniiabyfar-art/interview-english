@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dialogue Detective | B2 Punctuation Lab</title>
+<style>
+:root{--bg:#302744;--panel:#3d3357;--panel2:#4b3e68;--line:#786991;--text:#fffaff;--muted:#e5dcf2;--accent:#d3b6ff;--accent2:#b5e6ff;--lav:#a084e5;--gold:#f2d18a;--green:#92e0bd;--red:#ffb3be;--rose:#f6b8dd;--shadow:0 14px 34px rgba(0,0,0,.18)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at top left,#705394 0%,var(--bg) 48rem);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.62}.wrap{width:min(100% - 28px,1050px);margin:0 auto;padding:22px 0 56px}.hero{padding:clamp(24px,5vw,48px);border:1px solid #9b83c2;border-radius:26px;background:linear-gradient(135deg,rgba(177,143,236,.48),rgba(76,90,140,.92)),var(--panel);box-shadow:var(--shadow);position:relative;overflow:hidden}.hero:after{content:'“ ” ‘ ’ , ; —';position:absolute;right:-14px;bottom:-38px;font-size:clamp(43px,8vw,90px);letter-spacing:.08em;font-weight:900;color:rgba(229,212,255,.08);transform:rotate(-7deg);pointer-events:none}.kicker{display:inline-block;color:#e4d6ff;font-weight:850;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}h1{font-size:clamp(2rem,5vw,3.35rem);line-height:1.08;letter-spacing:-.035em;margin:0 0 14px;max-width:780px}.hero p{max-width:810px;color:#e4e0f2;margin:0;font-size:1.05rem}.meta{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}.pill{background:rgba(16,18,29,.42);border:1px solid #8b74ac;color:#f0e8ff;padding:6px 12px;border-radius:999px;font-size:.85rem;font-weight:750}.section{margin-top:21px;background:rgba(61,51,83,.98);border:1px solid var(--line);border-radius:21px;padding:clamp(17px,3.6vw,29px);box-shadow:var(--shadow)}.section-head{display:flex;gap:13px;align-items:flex-start;margin-bottom:16px}.num{flex:0 0 40px;height:40px;display:grid;place-items:center;border-radius:13px;background:#47355f;border:1px solid #8d70b7;color:#eadcff;font-weight:900}h2{font-size:clamp(1.22rem,3vw,1.62rem);line-height:1.22;margin:2px 0 5px;letter-spacing:-.02em}h3{font-size:1.04rem;margin:20px 0 8px;color:#e8dcff}.time{display:inline-block;font-size:.76rem;color:#dfceff;background:#55466f;border:1px solid #78638f;border-radius:8px;padding:2px 8px;margin-left:7px;vertical-align:middle;white-space:nowrap}.intro{margin:0;color:var(--muted)}.small{font-size:.88rem;color:var(--muted)}.tip{border-left:4px solid var(--gold);background:#49402d;padding:12px 15px;border-radius:0 11px 11px 0;color:#f4e8c9;margin:14px 0}.tip strong{color:#ffe4a9}.prompt{background:#2f334f;border:1px solid #686b8a;border-radius:13px;padding:13px;margin:11px 0}.prompt p{margin:0 0 8px}.prompt p:last-child{margin-bottom:0}.options{display:grid;gap:8px;margin-top:9px}.options label{display:flex;gap:10px;align-items:flex-start;border:1px solid #4a4d69;border-radius:10px;padding:9px 11px;cursor:pointer;background:#393d5a;transition:.15s}.options label:hover{border-color:#9478c7;background:#4a4168}.options input{margin-top:5px;accent-color:#c5a5ff;flex-shrink:0}.options label:has(input:checked){border-color:#aa8add;background:#423451}.feedback{min-height:22px;margin:9px 0 0;font-size:.92rem;font-weight:650}.feedback.good{color:var(--green)}.feedback.bad{color:var(--gold)}.btnrow{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:14px}.btn{border:0;border-radius:11px;padding:10px 15px;background:linear-gradient(135deg,#d2b8ff,#a7d4ff);color:#231b3a;font-weight:850;cursor:pointer;font-size:.94rem}.btn:hover{filter:brightness(1.07)}.btn.secondary{background:#3d4059;border:1px solid #696d88;color:#f3eeff}.score{font-weight:850;color:#e2d2ff;margin-left:5px}.table-wrap{overflow-x:auto;border:1px solid #5b5575;border-radius:14px;margin-top:13px}.rule-table{width:100%;border-collapse:collapse;min-width:750px;background:#2f334f}.rule-table th{background:#55466f;color:#f2e6ff;text-align:left;font-size:.9rem;padding:11px 12px;border-bottom:1px solid #655477}.rule-table td{padding:11px 12px;border-bottom:1px solid #474b64;vertical-align:top;color:#e3dfed;font-size:.92rem}.rule-table tr:last-child td{border-bottom:0}.rule-table td:first-child{color:#d8c4ff;font-weight:800;width:18%}.rule-table code,.example{font-family:inherit;background:#494661;border:1px solid #777292;border-radius:6px;padding:1px 4px;color:#e1d4ff}.style-pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin:13px 0}.style-card{border:1px solid #4a4566;border-radius:14px;background:linear-gradient(130deg,#4c4168,#3c4c6d);padding:15px}.style-card h3{margin:0 0 8px}.style-card p{margin:6px 0;color:#ddd8ea}.style-card .am{color:#b8e3ff}.style-card .br{color:#e4c6ff}.writing-prompt{background:linear-gradient(120deg,#50436d,#3c5272);border:1px solid #74618f;border-radius:14px;padding:15px;margin:12px 0}.writing-prompt strong{color:#e3d3ff}textarea{width:100%;background:#2f334f;color:var(--text);border:1px solid #626783;border-radius:12px;padding:13px 14px;font:inherit;line-height:1.65;resize:vertical;min-height:115px}textarea:focus{outline:2px solid #b49ae8;outline-offset:1px}textarea.long{min-height:175px}.model{display:none;margin-top:12px;border:1px solid #4b735f;background:#192a22;border-radius:13px;padding:15px}.model.show{display:block}.model h3{margin-top:0;color:#b9f0d4}.model p,.model li{color:#dfefe5}.model ul{padding-left:22px}.model .usmodel{border-left:3px solid #9bd9ff;padding-left:12px}.model .ukmodel{border-left:3px solid #d3b4ff;padding-left:12px}.check-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:8px;margin-top:11px}.check-grid label{background:#3b3f5b;border:1px solid #53566f;border-radius:10px;padding:9px 11px;color:var(--muted);display:flex;gap:8px;align-items:flex-start}.check-grid input{accent-color:#b8a0f5;margin-top:5px}
+.confidence-list{display:grid;gap:7px;margin-top:12px}
+.confidence-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(190px,245px);gap:10px;align-items:center;background:#3b3f5b;border:1px solid #53566f;border-radius:11px;padding:9px 11px}
+.confidence-row label{color:#e8e2f5;font-size:.92rem}
+.confidence-row label strong{color:#d8c4ff}
+.confidence-row select{width:100%;background:#4b4568;color:var(--text);border:1px solid #696181;border-radius:8px;padding:8px 9px;font:inherit;font-size:.86rem}
+.confidence-row select:focus{outline:2px solid #b49ae8;outline-offset:1px}
+.confidence-note{margin-top:11px;background:#4d4269;border:1px solid #675783;border-radius:11px;padding:11px 13px;color:#e4d9f5}
+@media(max-width:620px){.confidence-row{grid-template-columns:1fr}.confidence-row select{max-width:none}}
+.divider{height:1px;background:#464b63;margin:19px 0}.mini-label{font-size:.82rem;text-transform:uppercase;letter-spacing:.07em;color:#cfbaff;font-weight:850;margin-bottom:5px}.footnote{font-size:.86rem;color:#aaa8c0}.sources a{color:#b8dcff;text-decoration-thickness:1px;text-underline-offset:3px}.footer{text-align:center;color:#b9b3cf;font-size:.85rem;padding:24px 12px 0}.hide{display:none!important}
+
+.rule-quiz-shell{max-width:780px;margin:14px auto 0;border:1px solid #4a4566;border-radius:17px;padding:15px;background:linear-gradient(145deg,#463a60,#4e426a)}.rule-quiz-top{display:flex;justify-content:space-between;align-items:center;gap:12px;color:#d9d0f0;font-size:.9rem;font-weight:800;margin-bottom:9px}.rule-quiz-topic{display:inline-block;padding:4px 9px;border-radius:999px;background:#55466f;border:1px solid #78638f;color:#e4d6ff;font-size:.78rem}.rule-progress{height:6px;border-radius:99px;overflow:hidden;background:#605b7a;margin-bottom:14px}.rule-progress-fill{height:100%;width:8.333%;background:linear-gradient(90deg,#c7a9ff,#a8ddff);transition:width .2s}.rule-quiz-card{border:1px solid #4b4f6d;border-radius:13px;background:#32364f;padding:clamp(13px,2.5vw,20px)}.rule-quiz-prompt{font-weight:850;font-size:1.05rem;margin:0 0 12px}.rule-quiz-options{margin-top:0}.rule-quiz-options label{line-height:1.5}.rule-quiz-options label.correct-option{border-color:#4f9c79;background:#244535}.rule-quiz-options label.wrong-option{border-color:#977b49;background:#433721}.rule-quiz-feedback{margin-top:13px;border-radius:11px;border:1px solid #5f5280;background:#51436c;padding:12px 14px;color:#eee5ff}.rule-quiz-feedback strong{color:#dfccff}.rule-quiz-feedback.good{border-color:#477b62;background:#244132}.rule-quiz-feedback.bad{border-color:#8d7244;background:#413623}.rule-quiz-feedback p{margin:0 0 6px}.rule-quiz-feedback p:last-child{margin-bottom:0}.rule-quiz-controls{margin-top:13px}.rule-quiz-controls #ruleQuizNext:disabled{opacity:.42;cursor:not-allowed}.rule-quiz-bottom{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:10px 2px 0;color:#d8c8ff;font-weight:800;font-size:.88rem}.rule-quiz-bottom .small{font-weight:500}.insert-answer{width:100%;min-height:78px;margin-top:7px;background:#2f334f;color:var(--text);border:1px solid #55506f;border-radius:11px;padding:11px 12px;font:inherit;line-height:1.55;resize:vertical}.insert-answer:focus{outline:2px solid #b49ae8;outline-offset:1px}.insert-answer:disabled{opacity:.92}
+@media(max-width:600px){.rule-quiz-shell{padding:10px}.rule-quiz-card{padding:12px}.rule-quiz-bottom{display:block}.rule-quiz-bottom .small{display:block;margin-top:4px}}
+@media print{.rule-quiz-shell,.rule-quiz-card{background:#fff;color:#111;border-color:#aaa}.rule-quiz-prompt,.rule-quiz-top,.rule-quiz-bottom{color:#111}.rule-quiz-options label{background:#fff;color:#111;border-color:#aaa}.rule-quiz-feedback{display:block!important;background:#fff;color:#111;border-color:#aaa}.rule-quiz-controls{display:none}.rule-quiz-topic{background:#eee;color:#111;border-color:#aaa}}
+
+@media(max-width:600px){.wrap{width:min(100% - 16px,1050px);padding-top:9px}.section{padding:15px}.hero{padding:23px 19px}.section-head{gap:9px}.num{flex-basis:34px;height:34px;border-radius:10px}.time{margin:5px 0 0 0}.rule-table{min-width:700px}}
+@media print{body{background:#fff;color:#111}.wrap{width:100%;padding:0}.hero,.section{box-shadow:none;background:#fff;color:#111;border:1px solid #aaa;break-inside:avoid}.hero p,.intro,.small,.footnote,.footer{color:#333}.prompt,.options label,.style-card,.writing-prompt{background:#fff;color:#111;border-color:#aaa}.rule-table,.rule-table td{background:#fff;color:#111;border-color:#aaa}.rule-table th{background:#eee;color:#111}.btn,.meta{display:none}.model{display:block;background:#fff;color:#111}.model p,.model li{color:#111}.feedback{color:#111}.section{margin-top:10px}.confidence-row,.confidence-note{background:#fff;color:#111;border-color:#aaa}.confidence-row label,.confidence-note{color:#111}.confidence-row label strong{color:#222}.confidence-row select,.confidence-note input{background:#fff;color:#111;border-color:#777}.sources a{color:#111}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <div class="kicker">English · B2 · Punctuation Lab</div>
+  <h1>Dialogue Detective</h1>
+  <p>Commas, quotation marks, apostrophes and capital letters in dialogue. Discover the rules through a quiz, compare American and British styles, then edit and write your own conversations.</p>
+  <div class="meta"><span class="pill">60 minutes</span><span class="pill">Student version</span><span class="pill">American + British English</span><span class="pill">Quiz · edit · write</span></div>
+</header>
+
+<section class="section" id="detective">
+ <div class="section-head"><div class="num">01</div><div><h2>Rule detective: choose before you read <span class="time">5 min</span></h2><p class="intro">Choose the best version in each question. Think about what the punctuation tells the reader. Then use the compact Rule Quest below to practise the rules one at a time.</p></div></div>
+ <div class="prompt mcq" data-answer="b" data-explain="However links contrasting ideas, but it does not join two main clauses with a comma alone. Put a semicolon before however and a comma after it.">
+  <p><strong>1.</strong> Which sentence is punctuated correctly?</p><div class="options"><label><input type="radio" name="d1" value="a"> The ending was surprising, however, I guessed it.</label><label><input type="radio" name="d1" value="b"> The ending was surprising; however, I guessed it.</label><label><input type="radio" name="d1" value="c"> The ending was surprising; however I guessed it.</label></div><p class="feedback" aria-live="polite"></p>
+ </div>
+ <div class="prompt mcq" data-answer="c" data-explain="Alex is the person being spoken to, so the name is separated from the rest of the sentence by a comma.">
+  <p><strong>2.</strong> You are speaking directly to Alex. Which version is best?</p><div class="options"><label><input type="radio" name="d2" value="a"> Alex can you check this message?</label><label><input type="radio" name="d2" value="b"> Alex, can you, check this message?</label><label><input type="radio" name="d2" value="c"> Alex, can you check this message?</label></div><p class="feedback" aria-live="polite"></p>
+ </div>
+ <div class="prompt mcq" data-answer="a" data-explain="The context says there is only one brother; who lives in Bristol adds extra information, so the clause is surrounded by a pair of commas.">
+  <p><strong>3.</strong> You have one brother. Add the extra information “who lives in Bristol”.</p><div class="options"><label><input type="radio" name="d3" value="a"> My brother, who lives in Bristol, is visiting.</label><label><input type="radio" name="d3" value="b"> My brother who lives in Bristol, is visiting.</label><label><input type="radio" name="d3" value="c"> My brother, who lives in Bristol is visiting.</label></div><p class="feedback" aria-live="polite"></p>
+ </div>
+ <div class="prompt mcq" data-answer="b" data-explain="POVs is an ordinary plural and has no apostrophe. The apostrophe in characters’ shows that several characters own or have the POVs.">
+  <p><strong>4.</strong> Choose the sentence with correct apostrophes.</p><div class="options"><label><input type="radio" name="d4" value="a"> The character's POV's are different.</label><label><input type="radio" name="d4" value="b"> The characters’ POVs are different.</label><label><input type="radio" name="d4" value="c"> The characters POV’s are different.</label></div><p class="feedback" aria-live="polite"></p>
+ </div>
+ <div class="prompt mcq" data-answer="c" data-explain="The spoken question has its question mark inside the quotation marks. ‘she asked’ is a speech tag belonging to the same sentence, so she starts with a lowercase letter.">
+  <p><strong>5.</strong> Which line is punctuated correctly?</p><div class="options"><label><input type="radio" name="d5" value="a"> “Where are you going?” She asked.</label><label><input type="radio" name="d5" value="b"> “Where are you going,” she asked?</label><label><input type="radio" name="d5" value="c"> “Where are you going?” she asked.</label></div><p class="feedback" aria-live="polite"></p>
+ </div>
+ <div class="prompt mcq" data-answer="a" data-explain="In standard American English, commas and periods generally go inside the closing quotation marks, even when the quoted word is only a fragment. The fragment starts with a lowercase letter.">
+  <p><strong>6.</strong> Choose the usual American English style for a sentence that quotes just one descriptive word.</p><div class="options"><label><input type="radio" name="d6" value="a"> She called the ending “unexpected.”</label><label><input type="radio" name="d6" value="b"> She called the ending “unexpected”.</label><label><input type="radio" name="d6" value="c"> She called the ending “Unexpected.”</label></div><p class="feedback" aria-live="polite"></p>
+ </div>
+ <div class="prompt mcq" data-answer="b" data-explain="In a common British logical-punctuation style, the full stop sits outside the quotation marks because it belongs to the surrounding sentence, not to the quoted word. British publishers may use different house styles, so consistency matters.">
+  <p><strong>7.</strong> Choose the common British logical-punctuation style for the same idea.</p><div class="options"><label><input type="radio" name="d7" value="a"> She called the ending ‘unexpected.’</label><label><input type="radio" name="d7" value="b"> She called the ending ‘unexpected’.</label><label><input type="radio" name="d7" value="c"> She called the ending ‘Unexpected’.</label></div><p class="feedback" aria-live="polite"></p>
+ </div>
+ <div class="btnrow"><button class="btn" type="button" onclick="checkQuiz('detective')">Check answers</button><span class="score" id="score-detective" aria-live="polite"></span></div>
+</section>
+
+<section class="section" id="rule-table">
+ <div class="section-head"><div class="num">02</div><div><h2>Rule Quest: choose the correctly punctuated sentence <span class="time">8 min</span></h2><p class="intro">One question appears at a time. Choose a sentence, select “Check answer” to see the correct version and why its punctuation works, then move on. This round covers commas, colons, semicolons, em dashes, hyphens, apostrophes and quotation conventions.</p></div></div>
+ <div class="rule-quiz-shell" id="ruleQuiz">
+  <div class="rule-quiz-top"><span id="ruleQuizProgress">Question 1 of 12</span><span class="rule-quiz-topic" id="ruleQuizTopic">Commas</span></div>
+  <div class="rule-progress" aria-hidden="true"><div class="rule-progress-fill" id="ruleQuizProgressFill"></div></div>
+  <div class="rule-quiz-card">
+   <p class="rule-quiz-prompt" id="ruleQuizPrompt">Loading question…</p>
+   <div class="options rule-quiz-options" id="ruleQuizOptions"></div>
+   <div class="rule-quiz-feedback" id="ruleQuizFeedback" role="status" aria-live="polite" hidden></div>
+   <div class="btnrow rule-quiz-controls">
+    <button class="btn" type="button" id="ruleQuizCheck">Check answer</button>
+    <button class="btn secondary" type="button" id="ruleQuizNext" disabled>Next question →</button>
+    <button class="btn secondary" type="button" id="ruleQuizRestart" hidden>Try again</button>
+   </div>
+  </div>
+  <div class="rule-quiz-bottom"><span id="ruleQuizScore">Score: 0</span><span class="small">Choose first, then check to unlock the explanation.</span></div>
+ </div>
+ <noscript><p class="tip">Please enable JavaScript to use this interactive rule quiz.</p></noscript>
+</section>
+
+<section class="section" id="comma-gym">
+ <div class="section-head"><div class="num">03</div><div><h2>Comma gym: insert the punctuation yourself <span class="time">8 min</span></h2><p class="intro">Read each sentence and edit it in the box. Insert the missing punctuation marks wherever they are needed; in two sentences, the correct choice is to leave the sentence unchanged. After checking, read the explanation before moving on.</p></div></div>
+ <div class="rule-quiz-shell" id="commaInsertTask">
+  <div class="rule-quiz-top"><span id="commaInsertProgress">Sentence 1 of 9</span><span class="rule-quiz-topic" id="commaInsertTopic">Introductory clause</span></div>
+  <div class="rule-progress" aria-hidden="true"><div class="rule-progress-fill" id="commaInsertProgressFill"></div></div>
+  <div class="rule-quiz-card">
+   <p class="rule-quiz-prompt" id="commaInsertPrompt">Insert the missing punctuation.</p>
+   <p class="small" id="commaInsertContext">Keep the words the same. Change punctuation only.</p>
+   <label for="commaInsertInput"><strong>Edit the sentence:</strong></label>
+   <textarea id="commaInsertInput" class="insert-answer" rows="2" spellcheck="false"></textarea>
+   <div class="rule-quiz-feedback" id="commaInsertFeedback" role="status" aria-live="polite" hidden></div>
+   <div class="btnrow rule-quiz-controls">
+    <button class="btn" type="button" id="commaInsertCheck">Check my punctuation</button>
+    <button class="btn secondary" type="button" id="commaInsertNext" hidden>Next sentence →</button>
+    <button class="btn secondary" type="button" id="commaInsertRestart" hidden>Try again</button>
+   </div>
+  </div>
+  <div class="rule-quiz-bottom"><span id="commaInsertScore">Score: 0</span><span class="small">Type your corrected sentence, then check to see the rule.</span></div>
+ </div>
+ <noscript><p class="tip">Please enable JavaScript to use this punctuation insertion task.</p></noscript>
+</section>
+
+<section class="section" id="dialogue-quiz">
+ <div class="section-head"><div class="num">04</div><div><h2>Dialogue mechanics: capitals, lowercase and tags <span class="time">8 min</span></h2><p class="intro">Read the whole sentence, not just the words inside the quotation marks. Is the next part a speech tag, an action, or the continuation of the same spoken sentence?</p></div></div>
+ <div class="prompt mcq" data-answer="b" data-explain="The speech tag ‘she said’ belongs to the same sentence, so a comma separates it from the spoken words and ‘she’ remains lowercase."><p><strong>1.</strong> A statement is followed by a speech tag. Choose the standard format.</p><div class="options"><label><input type="radio" name="q1" value="a"> “I’m ready.” She said.</label><label><input type="radio" name="q1" value="b"> “I’m ready,” she said.</label><label><input type="radio" name="q1" value="c"> “I’m ready”, she said.</label></div><p class="feedback" aria-live="polite"></p></div>
+ <div class="prompt mcq" data-answer="a" data-explain="The spoken words are a question, so the question mark goes inside the closing quotation mark. ‘Alex asked’ is a speech tag, not a new action sentence: the verb ‘asked’ stays lowercase, but ‘Alex’ is capitalised because it is a proper name. A speech tag normally begins with lowercase unless its first word is a proper name."><p><strong>2.</strong> Choose the correct line.</p><div class="options"><label><input type="radio" name="q2" value="a"> “Are you coming?” Alex asked.</label><label><input type="radio" name="q2" value="b"> “Are you coming,” Alex asked?</label><label><input type="radio" name="q2" value="c"> “Are you coming?” Alex Asked.</label></div><p class="feedback" aria-live="polite"></p></div>
+ <div class="prompt mcq" data-answer="c" data-explain="‘She checked her phone’ describes an action, not the act of speaking. It begins a new sentence, so She takes a capital letter and the first sentence is closed before it."><p><strong>3.</strong> The second clause describes an action, not a speech tag. Choose the best version.</p><div class="options"><label><input type="radio" name="q3" value="a"> “Where are you going?” she checked her phone.</label><label><input type="radio" name="q3" value="b"> “Where are you going,” She checked her phone.</label><label><input type="radio" name="q3" value="c"> “Where are you going?” She checked her phone.</label></div><p class="feedback" aria-live="polite"></p></div>
+ <div class="prompt mcq" data-answer="b" data-explain="The quoted words are a fragment integrated into the writer’s sentence, not a complete direct-speech sentence, so the first word remains lowercase. This uses American punctuation placement."><p><strong>4.</strong> Which is correct in American English?</p><div class="options"><label><input type="radio" name="q4" value="a"> She described the plot as “Unexpectedly funny.”</label><label><input type="radio" name="q4" value="b"> She described the plot as “unexpectedly funny.”</label><label><input type="radio" name="q4" value="c"> She described the plot as “unexpectedly funny”.</label></div><p class="feedback" aria-live="polite"></p></div>
+ <div class="prompt mcq" data-answer="a" data-explain="The reporting clause interrupts one spoken sentence. The second part therefore continues with a lowercase letter: ‘we had more time’."><p><strong>5.</strong> Complete one sentence of interrupted speech.</p><div class="options"><label><input type="radio" name="q5" value="a"> “I thought,” Mia said, “we had more time.”</label><label><input type="radio" name="q5" value="b"> “I thought,” Mia said, “We had more time.”</label><label><input type="radio" name="q5" value="c"> “I thought.” Mia said, “We had more time.”</label></div><p class="feedback" aria-live="polite"></p></div>
+ <div class="prompt mcq" data-answer="c" data-explain="Sister’s marks possession; aren’t is a contraction of are not. The apostrophe is not used to make ordinary plurals such as POVs."><p><strong>6.</strong> Choose the sentence that correctly uses both possession and a contraction.</p><div class="options"><label><input type="radio" name="q6" value="a"> My sisters headphones arent here.</label><label><input type="radio" name="q6" value="b"> My sister’s headphone’s aren’t here.</label><label><input type="radio" name="q6" value="c"> My sister’s headphones aren’t here.</label></div><p class="feedback" aria-live="polite"></p></div>
+ <div class="btnrow"><button class="btn" type="button" onclick="checkQuiz('dialogue-quiz')">Check answers</button><span class="score" id="score-dialogue-quiz" aria-live="polite"></span></div>
+</section>
+
+<section class="section" id="style-switch">
+ <div class="section-head"><div class="num">05</div><div><h2>Quotation-style switch: American vs British <span class="time">8 min</span></h2><p class="intro">Practise the two conventions side by side. These are common patterns, not an absolute rule for every publisher: British publications can use double quotation marks or American-style punctuation too.</p></div></div>
+ <div class="style-pair">
+  <div class="style-card"><div class="mini-label">American English · common style</div><h3 class="am">“Double first”</h3><p><strong>Direct speech:</strong> <span class="example">“I can’t come,” Mia said.</span></p><p><strong>Quoted word:</strong> <span class="example">She called the ending “unexpected.”</span></p><p><strong>Nested quote:</strong> <span class="example">“She said, ‘Don’t wait.’”</span></p><p class="small">Commas and periods generally go inside the closing quotation marks.</p></div>
+  <div class="style-card"><div class="mini-label">British English · common logical style</div><h3 class="br">‘Single first’</h3><p><strong>Direct speech:</strong> <span class="example">‘I can’t come,’ Mia said.</span></p><p><strong>Quoted word:</strong> <span class="example">She called the ending ‘unexpected’.</span></p><p><strong>Nested quote:</strong> <span class="example">‘She said, “Don’t wait.”’</span></p><p class="small">Punctuation not belonging to the quoted words often goes outside the closing marks.</p></div>
+ </div>
+ <div class="tip"><strong>Important distinction:</strong> in direct dialogue before a speech tag, the comma normally stays inside the quotation marks in both styles: <em>“I can’t come,” Mia said.</em> / <em>‘I can’t come,’ Mia said.</em> The most visible difference is often punctuation after a quoted fragment inside a larger sentence.</div>
+ <div class="prompt mcq" data-answer="b" data-explain="In standard American style, the period goes inside the closing double quotation mark, even though ‘unexpected’ is only a quoted word within the sentence."><p><strong>1.</strong> Choose the American English version.</p><div class="options"><label><input type="radio" name="s1" value="a"> She called the ending “unexpected”.</label><label><input type="radio" name="s1" value="b"> She called the ending “unexpected.”</label><label><input type="radio" name="s1" value="c"> She called the ending “Unexpected.”</label></div><p class="feedback" aria-live="polite"></p></div>
+ <div class="prompt mcq" data-answer="a" data-explain="In the common British logical-punctuation style, the full stop is outside because it ends the surrounding sentence rather than the quoted word."><p><strong>2.</strong> Choose the British logical-punctuation version.</p><div class="options"><label><input type="radio" name="s2" value="a"> She called the ending ‘unexpected’.</label><label><input type="radio" name="s2" value="b"> She called the ending ‘unexpected.’</label><label><input type="radio" name="s2" value="c"> She called the ending ‘Unexpected’.</label></div><p class="feedback" aria-live="polite"></p></div>
+ <div class="prompt mcq" data-answer="c" data-explain="The question mark belongs to the whole sentence ‘Did she really say…?’ The quoted words ‘I quit’ are not themselves a question, so the question mark sits outside the quotation marks. The quote-mark shape changes by style."><p><strong>3.</strong> Which placement shows that the whole sentence is a question, not the words inside the quote?</p><div class="options"><label><input type="radio" name="s3" value="a"> Did she really say “I quit?”</label><label><input type="radio" name="s3" value="b"> Did she really say “I quit.”?</label><label><input type="radio" name="s3" value="c"> Did she really say “I quit”?</label></div><p class="feedback" aria-live="polite"></p></div>
+ <div class="prompt mcq" data-answer="b" data-explain="In the common British style shown here, single marks are used for the main quotation and double marks for a quote inside it."><p><strong>4.</strong> Choose the British-style version of a quotation inside another quotation.</p><div class="options"><label><input type="radio" name="s4" value="a"> “She said, ‘Don’t wait.’”</label><label><input type="radio" name="s4" value="b"> ‘She said, “Don’t wait.”’</label><label><input type="radio" name="s4" value="c"> ‘She said, ‘Don’t wait.’’</label></div><p class="feedback" aria-live="polite"></p></div>
+ <div class="btnrow"><button class="btn" type="button" onclick="checkQuiz('style-switch')">Check answers</button><span class="score" id="score-style-switch" aria-live="polite"></span></div>
+ <h3>Try the style switch yourself</h3><p class="small">Rewrite the sentence once in American style and once in British logical punctuation. Do not capitalise the quoted phrase because it is part of the surrounding sentence.</p>
+ <p><strong>Base sentence:</strong> the reviewer called the ending surprisingly clever and i agreed</p>
+ <label for="usConvert"><strong>American English</strong></label><textarea id="usConvert" placeholder="Rewrite with American quotation style…"></textarea>
+ <label for="ukConvert"><strong>British English · logical punctuation</strong></label><textarea id="ukConvert" placeholder="Rewrite with British logical punctuation…"></textarea>
+ <div class="btnrow"><button class="btn secondary" type="button" onclick="toggleModel('styleModel',this)">Reveal sample answers</button></div>
+ <div class="model" id="styleModel"><h3>Sample answers</h3><p class="usmodel"><strong>American:</strong> The reviewer called the ending “surprisingly clever,” and I agreed.</p><p class="ukmodel"><strong>British logical punctuation:</strong> The reviewer called the ending ‘surprisingly clever’, and I agreed.</p><p>The comma joins two independent clauses and belongs to the surrounding sentence. In standard American style it goes inside the closing quote; in logical punctuation it goes outside because it is not part of the quoted words. British publishers vary, so follow the style requested by the publication or teacher.</p></div>
+</section>
+
+<section class="section" id="repair-dialogue">
+ <div class="section-head"><div class="num">06</div><div><h2>Repair the dialogue, then convert the style <span class="time">10 min</span></h2><p class="intro">Add quotation marks, commas, apostrophes and capital letters. Make the speech tags lowercase where they continue the same sentence. Then rewrite it with the other quotation-mark convention.</p></div></div>
+ <div class="prompt"><p class="small">Original message</p><p>mia texted i cant come to the screening tonight<br>why asked alex<br>my brothers laptop is broken and he wont let me use his headphones however ill try to come next week mia replied<br>okay ill save you a seat but dont be late alex said</p></div>
+ <div class="writing-prompt"><strong>Checklist before you start</strong><p>Look for contractions (<em>can't, won't, I'll, don't</em>), possession (<em>brother's laptop</em>), a comma before a speech tag, a question mark inside the quotation, the comma after <em>however</em>, and an em dash for emphasis if it fits naturally.</p></div>
+ <label for="repairUS"><strong>Your corrected version · American English</strong></label><textarea id="repairUS" class="long" placeholder="Use double quotation marks for direct speech…"></textarea>
+ <label for="repairUK"><strong>Now convert it · British English</strong></label><textarea id="repairUK" class="long" placeholder="Use single quotation marks for direct speech…"></textarea>
+ <div class="btnrow"><button class="btn secondary" type="button" onclick="toggleModel('repairModel',this)">Reveal sample versions</button><span class="small">Try both versions before opening the model.</span></div>
+ <div class="model" id="repairModel"><h3>One possible answer</h3><div class="usmodel"><p><strong>American English</strong></p><p>Mia texted, “I can’t come to the screening tonight.”</p><p>“Why?” Alex asked.</p><p>“My brother’s laptop is broken, and he won’t let me use his headphones. However, I’ll try to come next week,” Mia replied.</p><p>“Okay, I’ll save you a seat—but don’t be late,” Alex said.</p></div><div class="ukmodel"><p><strong>British English</strong></p><p>Mia texted, ‘I can’t come to the screening tonight.’</p><p>‘Why?’ Alex asked.</p><p>‘My brother’s laptop is broken, and he won’t let me use his headphones. However, I’ll try to come next week,’ Mia replied.</p><p>‘Okay, I’ll save you a seat—but don’t be late,’ Alex said.</p></div><ul><li><em>Brother’s laptop</em> uses a possessive apostrophe; <em>can’t, won’t, I’ll</em> and <em>don’t</em> are contractions.</li><li><em>Why?</em> has a question mark inside the quotation marks; <em>Alex asked</em> starts with lowercase because it is a speech tag following a question.</li><li><em>However,</em> takes a comma after it. This sentence begins a new spoken sentence, so <em>However</em> is capitalised.</li><li>The comma before <em>Mia replied</em> separates the spoken words from the speech tag.</li><li>The em dash in <em>seat—but</em> creates a small emphatic turn. A hyphen would not serve the same function.</li><li>In this direct-dialogue example, the comma before a speech tag stays inside the quotation marks in both conventions; the main visible difference is the quotation-mark style.</li></ul></div>
+</section>
+
+<section class="section" id="writing">
+ <div class="section-head"><div class="num">07</div><div><h2>Write your own mini-dialogue <span class="time">10 min</span></h2><p class="intro">Choose either American English or British English, then write and proofread the whole dialogue in that one style only. You do not need to convert it into the other style.</p></div></div>
+ <div class="writing-prompt"><strong>Your writing mission</strong><p>First, select <strong>one</strong> quotation style below. Write 6–8 lines of dialogue between two friends planning something that goes wrong, and use only your selected style throughout.</p><p>Include at least two contractions, one possessive apostrophe, a question followed by a speech tag, a speech tag after a statement, a separate action beat, and a sentence starting with <em>However,</em>. Use at least two commas for different purposes. Do not rewrite any line in the other style.</p></div>
+ <div class="style-pair"><div class="style-card"><h3>Choose ONE style for this task</h3><label><input type="radio" name="writingStyle" value="us"> American English: “double quotation marks”</label><br><label><input type="radio" name="writingStyle" value="uk"> British English: ‘single quotation marks’</label><p class="small">Select one option. The matching punctuation reminder will appear below.</p></div><div class="style-card"><h3>Plan before writing</h3><p>Who is speaking? What goes wrong? Which lines are direct speech, and which are actions? Where will you use the possessive apostrophe?</p></div></div>
+ <div id="writingStyleGuide" class="tip hide" aria-live="polite"></div>
+ <label for="ownDialogue"><strong>Your 6–8 lines in your selected style</strong></label><textarea id="ownDialogue" class="long" placeholder="Choose American or British English above, then write your dialogue in that style only…"></textarea>
+ <h3>Proofread your choices</h3><div class="check-grid"><label><input type="checkbox"> I used a comma after an introductory <em>However</em>.</label><label><input type="checkbox"> I avoided joining two complete sentences with only a comma.</label><label><input type="checkbox"> I used apostrophes for contractions or possession, not ordinary plurals.</label><label><input type="checkbox"> I used lowercase for speech-tag verbs when they continue the sentence.</label><label><input type="checkbox"> I capitalised proper names and the start of new spoken or action sentences.</label><label><input type="checkbox"> I used only my selected quotation style and its punctuation conventions consistently.</label></div>
+</section>
+
+<section class="section" id="exit-ticket">
+ <div class="section-head"><div class="num">08</div><div><h2>Exit ticket: explain, don’t just name <span class="time">3 min</span></h2><p class="intro">Answer aloud or in your notebook. Use a complete explanation and create your own example for at least one question.</p></div></div>
+ <ol><li>Why is <em>“The episode was short; however, it was memorable.”</em> not punctuated with a comma alone?</li><li>Why is the word <em>she</em> lowercase in <em>“Are you ready?” she asked.</em>?</li><li>In British logical punctuation, why does the full stop sit outside <em>‘unexpected’</em> in <em>She called it ‘unexpected’.</em>?</li></ol>
+ <div class="check-grid"><label><input type="checkbox"> I can explain one comma rule without looking back at the rules.</label><label><input type="checkbox"> I can correct the “however” pattern from memory.</label><label><input type="checkbox"> I can describe one difference between US and UK quotation punctuation.</label></div>
+ <div class="divider"></div>
+ <h3>My punctuation confidence check</h3>
+ <p class="small">Rate each area honestly: <strong>1</strong> = I need more practice · <strong>2</strong> = I can usually do it with a reminder · <strong>3</strong> = I can use it and explain the rule independently.</p>
+ <div class="confidence-list" aria-label="Punctuation confidence ratings">
+  <div class="confidence-row"><label for="confidence-period"><strong>Full stops / periods</strong> — ending complete sentences and avoiding run-ons.</label><select id="confidence-period" aria-label="Rate your confidence with full stops and periods"><option value="">Choose a rating…</option><option value="1">1 · Need more practice</option><option value="2">2 · Getting there</option><option value="3">3 · Confident</option></select></div>
+  <div class="confidence-row"><label for="confidence-comma"><strong>Commas</strong> — lists, direct address, introductory clauses, extra information, <em>however</em> and avoiding comma splices.</label><select id="confidence-comma" aria-label="Rate your confidence with commas"><option value="">Choose a rating…</option><option value="1">1 · Need more practice</option><option value="2">2 · Getting there</option><option value="3">3 · Confident</option></select></div>
+  <div class="confidence-row"><label for="confidence-colon"><strong>Colons</strong> — introducing a list or explanation after a complete clause.</label><select id="confidence-colon" aria-label="Rate your confidence with colons"><option value="">Choose a rating…</option><option value="1">1 · Need more practice</option><option value="2">2 · Getting there</option><option value="3">3 · Confident</option></select></div>
+  <div class="confidence-row"><label for="confidence-semicolon"><strong>Semicolons</strong> — linking closely related independent clauses; using <em>; however,</em> correctly.</label><select id="confidence-semicolon" aria-label="Rate your confidence with semicolons"><option value="">Choose a rating…</option><option value="1">1 · Need more practice</option><option value="2">2 · Getting there</option><option value="3">3 · Confident</option></select></div>
+  <div class="confidence-row"><label for="confidence-emdash"><strong>Em dashes</strong> — adding an interruption, extra information or emphasis, and distinguishing a dash from a hyphen.</label><select id="confidence-emdash" aria-label="Rate your confidence with em dashes"><option value="">Choose a rating…</option><option value="1">1 · Need more practice</option><option value="2">2 · Getting there</option><option value="3">3 · Confident</option></select></div>
+  <div class="confidence-row"><label for="confidence-hyphen"><strong>Hyphens</strong> — joining words in compound modifiers such as <em>well-prepared</em> and <em>screen-free</em>.</label><select id="confidence-hyphen" aria-label="Rate your confidence with hyphens"><option value="">Choose a rating…</option><option value="1">1 · Need more practice</option><option value="2">2 · Getting there</option><option value="3">3 · Confident</option></select></div>
+  <div class="confidence-row"><label for="confidence-apostrophe"><strong>Apostrophes</strong> — contractions, possession and knowing not to use apostrophes for ordinary plurals.</label><select id="confidence-apostrophe" aria-label="Rate your confidence with apostrophes"><option value="">Choose a rating…</option><option value="1">1 · Need more practice</option><option value="2">2 · Getting there</option><option value="3">3 · Confident</option></select></div>
+  <div class="confidence-row"><label for="confidence-quotes"><strong>Quotation marks</strong> — punctuating direct speech and following one chosen American or British convention consistently.</label><select id="confidence-quotes" aria-label="Rate your confidence with quotation marks"><option value="">Choose a rating…</option><option value="1">1 · Need more practice</option><option value="2">2 · Getting there</option><option value="3">3 · Confident</option></select></div>
+  <div class="confidence-row"><label for="confidence-dialogue"><strong>Dialogue capitals and lowercase</strong> — distinguishing speech tags from action sentences and always capitalising names.</label><select id="confidence-dialogue" aria-label="Rate your confidence with capitalisation in dialogue"><option value="">Choose a rating…</option><option value="1">1 · Need more practice</option><option value="2">2 · Getting there</option><option value="3">3 · Confident</option></select></div>
+ </div>
+ <div class="confidence-note"><strong>My next step:</strong> Which one area would you like to practise again? <input type="text" aria-label="Punctuation area to practise next" placeholder="Write one punctuation area…" style="display:block;width:100%;margin-top:7px;background:#282b42;color:var(--text);border:1px solid #777292;border-radius:8px;padding:9px 10px;font:inherit"></div>
+</section>
+
+<section class="section" id="homework">
+ <div class="section-head"><div class="num">HW</div><div><h2>Optional homework <span class="time">15–20 min</span></h2><p class="intro">Complete these after the lesson to make the rules stick.</p></div></div>
+ <h3>1. Proofread the chat</h3><p>Correct the message. Keep the meaning, but repair quotation marks, commas, apostrophes and capital letters.</p><div class="prompt"><p>hey sam i cant come to your house today my cousins visiting however ill call you later said mia no problem replied sam ill tell my brother that youre not coming</p></div><textarea id="homeworkChat" placeholder="Rewrite the message…"></textarea><div class="btnrow"><button class="btn secondary" type="button" onclick="toggleModel('homeworkModel',this)">Reveal sample answer</button></div><div class="model" id="homeworkModel"><h3>One possible answer · American English</h3><p>Mia said, “Hey, Sam, I can’t come to your house today. My cousin’s visiting; however, I’ll call you later.”</p><p>“No problem,” replied Sam. “I’ll tell my brother that you’re not coming.”</p><p>In this version, <em>Sam</em> is direct address, <em>cousin’s</em> indicates possession or a contraction of <em>cousin is</em> depending on the intended meaning (here, a contraction), <em>however</em> follows a semicolon and takes a comma, and the speech tags use lowercase when they continue the same sentence.</p></div>
+ <div class="divider"></div><h3>2. Style switch</h3><p>Rewrite this sentence in American English and British logical punctuation: <em>the critic called the ending surprisingly moving and i agreed</em></p><textarea id="homeworkStyle" placeholder="American version, then British version…"></textarea><div class="btnrow"><button class="btn secondary" type="button" onclick="toggleModel('homeworkStyleModel',this)">Reveal sample answers</button></div><div class="model" id="homeworkStyleModel"><h3>Sample answers</h3><p><strong>American:</strong> The critic called the ending “surprisingly moving,” and I agreed.</p><p><strong>British logical punctuation:</strong> The critic called the ending ‘surprisingly moving’, and I agreed.</p><p>The quote is a fragment inside the writer’s sentence, so it starts lowercase. The clause comma is inside in the common American style and outside in the logical-punctuation version.</p></div>
+</section>
+
+<section class="section sources">
+ <div class="section-head"><div class="num">↗</div><div><h2>Reference links</h2><p class="intro">The lesson uses common conventions described by university and learner-dictionary style guides. Publisher preferences can vary, particularly in British English.</p></div></div>
+ <ul><li><a href="https://www.ox.ac.uk/about-the-university/style-guide/punctuation" target="_blank" rel="noopener">University of Oxford — punctuation and quotation marks</a></li><li><a href="https://owl.purdue.edu/owl/general_writing/punctuation/quotation_marks/index.html" target="_blank" rel="noopener">Purdue OWL — using quotation marks (American English)</a></li><li><a href="https://dictionary.cambridge.org/grammar/british-grammar/punctuation" target="_blank" rel="noopener">Cambridge Dictionary — punctuation and direct speech</a></li></ul>
+ <p class="footnote">Use the convention requested by your school, publisher or audience. Most importantly, be consistent within one piece of writing.</p>
+</section>
+<div class="section"><div class="btnrow"><button class="btn" type="button" onclick="window.print()">Print / save as PDF</button><button class="btn secondary" type="button" onclick="clearWriting()">Clear writing boxes</button><span class="small">Your typed answers remain in this page while it stays open; download or copy important work before closing.</span></div></div>
+<div class="footer">Dialogue Detective · English B2 · Every punctuation mark has a job.</div>
+</div>
+<script>
+const ruleQuestQuestions = [
+ {topic:'Introductory commas', prompt:'Which sentence is correctly punctuated?', options:[
+  'Although we had booked the tickets online, we still had to queue.',
+  'Although, we had booked the tickets online, we still had to queue.',
+  'Although we had booked the tickets online we, still had to queue.'
+ ], answer:0, rule:'Use a comma after a long introductory dependent clause. Do not put a comma immediately after “although”; place it where the introductory clause ends and the main clause begins.'},
+ {topic:'Commas and and', prompt:'The same person did both actions. Which sentence is correct?', options:[
+  'I got home, and started my homework.',
+  'I got home; and started my homework.',
+  'I got home and started my homework.'
+ ], answer:2, rule:'Do not normally put a comma before “and” when it joins two verbs with the same subject. Here, “I” is the subject of both “got” and “started”.'},
+ {topic:'Extra information', prompt:'You have one cousin, and the clause gives extra information. Which sentence is correct?', options:[
+  'My cousin who lives in Leeds, is visiting.',
+  'My cousin, who lives in Leeds, is visiting.',
+  'My cousin, who lives in Leeds is visiting.'
+ ], answer:1, rule:'Use a pair of commas around non-essential information. Because you have one cousin, “who lives in Leeds” adds detail rather than identifying which cousin you mean.'},
+ {topic:'Direct address', prompt:'You are thanking Alex directly. Which version is punctuated correctly?', options:[
+  'Thanks Alex, for texting.',
+  'Thanks, Alex for texting.',
+  'Thanks, Alex, for texting.'
+ ], answer:2, rule:'Put a comma around a name used in direct address when it sits inside the sentence. The commas show that Alex is the person being spoken to.'},
+ {topic:'However', prompt:'Which sentence correctly connects two contrasting independent clauses?', options:[
+  'The bus was late, however we arrived on time.',
+  'The bus was late; however, we arrived on time.',
+  'The bus was late; however we arrived on time.'
+ ], answer:1, rule:'When “however” links two independent clauses, use a semicolon before it and a comma after it: “clause; however, clause”. The semicolon prevents a comma splice.'},
+ {topic:'Comma splice', prompt:'Which sentence correctly joins the two ideas?', options:[
+  'The app looked useful, it still needed work.',
+  'The app looked useful, but it still needed work.',
+  'The app looked useful, still it needed work.'
+ ], answer:1, rule:'A comma alone cannot normally join two independent clauses. Use a comma plus a coordinating conjunction such as “but”, a semicolon, or a full stop.'},
+ {topic:'Colon', prompt:'Which sentence uses a colon correctly?', options:[
+  'I packed three things: a notebook, snacks and water.',
+  'I packed: a notebook, snacks and water.',
+  'I packed three things including: a notebook, snacks and water.'
+ ], answer:0, rule:'The words before a colon should form a complete thought. “I packed three things” is complete and prepares the reader for the list. Avoid putting a colon directly after a verb or after “including”.'},
+ {topic:'Semicolon', prompt:'Which sentence uses a semicolon correctly?', options:[
+  'The first draft was unclear; the final version worked.',
+  'The first draft; was unclear, the final version worked.',
+  'The first draft was unclear; because the final version worked.'
+ ], answer:0, rule:'A semicolon can connect two closely related independent clauses. Both sides must be able to stand as complete sentences; do not separate a subject from its verb or attach a dependent clause as if it were independent.'},
+ {topic:'Em dash vs hyphen', prompt:'Which sentence uses both marks correctly?', options:[
+  'She bought a well-designed laptop—it exceeded all her expectations.',
+  'She bought a well designed laptop - it exceeded all her expectations.',
+  'She bought a well—designed laptop; it exceeded all her expectations.'
+ ], answer:0, rule:'A hyphen joins parts of a compound modifier (“well-designed”). An em dash (—) creates a stronger break or introduces an emphatic explanation. They are not interchangeable.'},
+ {topic:'Apostrophes', prompt:'Several players own the PCs. Which sentence is correct?', options:[
+  'The players PC’s are ready, and each device has it’s own charger.',
+  'The players’ PCs are ready, and each device has its own charger.',
+  'The player’s PCs are ready, and each device has it’s own charger.'
+ ], answer:1, rule:'Use the plural possessive “players’” because several players own the PCs. “PCs” is an ordinary plural and needs no apostrophe. “Its” means “belonging to it”; “it’s” means “it is” or “it has”.'},
+ {topic:'Dialogue capitals', prompt:'Which version correctly punctuates a statement followed by a speech tag and then a new spoken sentence?', options:[
+  '“I’m ready,” She said. “let’s go.”',
+  '“I’m ready,” she said. “Let’s go.”',
+  '“I’m ready”, she said. “Let’s go”.'
+ ], answer:1, rule:'The speech tag “she said” continues the same sentence, so “she” is lowercase. “Let’s go” begins a new spoken sentence, so its first word is capitalised. This example uses the common American placement of commas and full stops inside the quotation marks.'},
+ {topic:'US vs UK quotes', prompt:'Which pair follows common American punctuation and British logical punctuation, respectively?', options:[
+  'US: She called it “unexpected”. / UK: She called it ‘unexpected.’',
+  'US: She called it “unexpected.” / UK: She called it ‘unexpected’.',
+  'US: She called it ‘unexpected’. / UK: She called it “unexpected.”'
+ ], answer:1, rule:'In common American style, periods and commas generally go inside closing quotation marks. In British logical punctuation, punctuation that does not belong to the quoted word or phrase goes outside. British publishers vary, so consistency and house style matter.'}
+];
+let ruleQuestIndex=0, ruleQuestScore=0, ruleQuestAnswered=false;
+function renderRuleQuest(){
+ const q=ruleQuestQuestions[ruleQuestIndex];
+ const progress=document.getElementById('ruleQuizProgress');
+ const topic=document.getElementById('ruleQuizTopic');
+ const fill=document.getElementById('ruleQuizProgressFill');
+ const prompt=document.getElementById('ruleQuizPrompt');
+ const options=document.getElementById('ruleQuizOptions');
+ const feedback=document.getElementById('ruleQuizFeedback');
+ const check=document.getElementById('ruleQuizCheck');
+ const next=document.getElementById('ruleQuizNext');
+ const restart=document.getElementById('ruleQuizRestart');
+ if(!q){
+  progress.textContent='Quiz complete'; topic.textContent='Finished'; fill.style.width='100%';
+  prompt.textContent='You’ve completed Rule Quest!'; options.innerHTML='';
+  feedback.hidden=false; feedback.className='rule-quiz-feedback good';
+  feedback.innerHTML='<p><strong>Your result: '+ruleQuestScore+' / '+ruleQuestQuestions.length+'</strong></p><p>Review the explanations for any rules you found difficult, then continue to the focused comma and dialogue practice below.</p>';
+  check.hidden=true; next.hidden=true; restart.hidden=false;
+  document.getElementById('ruleQuizScore').textContent='Final score: '+ruleQuestScore+'/'+ruleQuestQuestions.length;
+  return;
+ }
+ progress.textContent='Question '+(ruleQuestIndex+1)+' of '+ruleQuestQuestions.length;
+ topic.textContent=q.topic; fill.style.width=((ruleQuestIndex+1)/ruleQuestQuestions.length*100)+'%';
+ prompt.textContent=q.prompt; options.innerHTML='';
+ q.options.forEach((text,i)=>{
+  const label=document.createElement('label'); label.setAttribute('data-option-index',String(i));
+  const radio=document.createElement('input'); radio.type='radio'; radio.name='ruleQuestChoice'; radio.value=String(i);
+  const span=document.createElement('span'); span.textContent=text;
+  label.appendChild(radio); label.appendChild(span); options.appendChild(label);
+ });
+ feedback.hidden=true; feedback.className='rule-quiz-feedback'; feedback.innerHTML='';
+ check.hidden=false; check.disabled=false; next.hidden=false; next.disabled=true; next.textContent=ruleQuestIndex===ruleQuestQuestions.length-1?'See results →':'Next question →';
+ restart.hidden=true; ruleQuestAnswered=false;
+ document.getElementById('ruleQuizScore').textContent='Score: '+ruleQuestScore;
+}
+function checkRuleQuestAnswer(){
+ if(ruleQuestAnswered)return;
+ const q=ruleQuestQuestions[ruleQuestIndex];
+ const selected=document.querySelector('input[name="ruleQuestChoice"]:checked');
+ const feedback=document.getElementById('ruleQuizFeedback');
+ if(!selected){feedback.hidden=false;feedback.className='rule-quiz-feedback bad';feedback.innerHTML='<p>Please choose a sentence first.</p>';return;}
+ const choice=Number(selected.value); const correct=choice===q.answer;
+ ruleQuestAnswered=true; if(correct)ruleQuestScore++;
+ document.querySelectorAll('#ruleQuizOptions label').forEach((label,i)=>{
+  label.querySelector('input').disabled=true;
+  if(i===q.answer)label.classList.add('correct-option');
+  if(i===choice && !correct)label.classList.add('wrong-option');
+ });
+ feedback.hidden=false; feedback.className='rule-quiz-feedback '+(correct?'good':'bad');
+ feedback.innerHTML='<p><strong>'+(correct?'✓ Correct!':'Not quite. The best answer is:')+'</strong> '+q.options[q.answer]+'</p><p><strong>The rule:</strong> '+q.rule+'</p>';
+ document.getElementById('ruleQuizCheck').disabled=true;
+ document.getElementById('ruleQuizNext').disabled=false;
+ document.getElementById('ruleQuizScore').textContent='Score: '+ruleQuestScore;
+}
+function nextRuleQuest(){if(!ruleQuestAnswered)return;ruleQuestIndex++;renderRuleQuest();}
+function restartRuleQuest(){ruleQuestIndex=0;ruleQuestScore=0;ruleQuestAnswered=false;renderRuleQuest();}
+
+const commaInsertQuestions = [
+ {topic:'Introductory clause', prompt:'Add the comma after the introductory clause.', context:'The opening clause tells us when the main action happens.', sentence:'Although it was getting late we decided to watch one more episode.', answer:'Although it was getting late, we decided to watch one more episode.', rule:'Use a comma after an introductory dependent clause when it comes before the main clause. The comma marks the boundary between “Although it was getting late” and “we decided to watch one more episode”.'},
+ {topic:'Extra information', prompt:'You have only one cousin. Add the commas around the extra information.', context:'The words “who lives in Leeds” add information; they do not identify which cousin.', sentence:'My cousin who lives in Leeds is visiting us this weekend.', answer:'My cousin, who lives in Leeds, is visiting us this weekend.', rule:'A non-essential relative clause gives extra information and is enclosed by a pair of commas. If the clause were needed to identify which cousin you meant, the commas would be omitted.'},
+ {topic:'Direct address', prompt:'Add the commas needed when speaking directly to Alex.', context:'The name is used to address the person, not to identify the subject or object.', sentence:'Thanks Alex for checking my message.', answer:'Thanks, Alex, for checking my message.', rule:'A name used in direct address is separated from the rest of the sentence by commas. When it appears in the middle, use a comma on each side: “Thanks, Alex, for…”'},
+ {topic:'However', prompt:'Insert the punctuation needed around “however”.', context:'Both sides express complete, contrasting ideas. Use the standard semicolon pattern.', sentence:'The episode was short however it was surprisingly memorable.', answer:'The episode was short; however, it was surprisingly memorable.', rule:'When “however” connects two independent clauses, use a semicolon before it and a comma after it: clause; however, clause. A comma alone before “however” would create a comma splice.'},
+ {topic:'Independent clauses', prompt:'Add the comma needed before the coordinating conjunction.', context:'There is a different subject in each independent clause: “I” and “it”.', sentence:'I opened the message but it was completely empty.', answer:'I opened the message, but it was completely empty.', rule:'Use a comma before a coordinating conjunction such as “but” when it joins two independent clauses. Each side could stand as a complete sentence.'},
+ {topic:'Items in a list', prompt:'Add commas to separate the four items. Use the Oxford comma in this exercise.', context:'The sentence contains four things that were packed.', sentence:'I packed snacks water a notebook and a charger.', answer:'I packed snacks, water, a notebook, and a charger.', rule:'Use commas to separate items in a list. The Oxford comma is the comma before the final “and”. It is optional in many styles, but use it consistently when it is the chosen house style.'},
+ {topic:'Same subject, two verbs', prompt:'Check whether a comma is needed before “and”. Add punctuation only if necessary.', context:'The same person (“I”) did both actions.', sentence:'I got home and started my homework.', answer:'I got home and started my homework.', rule:'No comma is normally needed when “and” joins two verbs that share the same subject. Here, “I” is the subject of both “got” and “started”. Do not add a comma just because you hear a pause.'},
+ {topic:'Essential information', prompt:'Decide whether the relative clause needs commas. Leave the sentence unchanged if it does not.', context:'You mean the particular game that everyone recommended.', sentence:'I chose the game that everyone recommended.', answer:'I chose the game that everyone recommended.', rule:'An essential (restrictive) relative clause identifies which game you mean, so it is not separated by commas. Without the clause, the reader would not know which game you chose.'},
+ {topic:'Introductory transition', prompt:'Add the comma after the introductory transition.', context:'“In fact” comments on the whole statement that follows.', sentence:'In fact I had already seen the ending.', answer:'In fact, I had already seen the ending.', rule:'A short introductory transition such as “In fact”, “Fortunately” or “However” is commonly followed by a comma. This helps the reader recognise the transition before the main clause begins.'}
+];
+let commaInsertIndex=0, commaInsertScore=0, commaInsertAnswered=false;
+function normalizeInsertText(value){return value.trim().replace(/\s+/g,' ').toLowerCase();}
+function renderCommaInsertTask(){
+ const q=commaInsertQuestions[commaInsertIndex];
+ const progress=document.getElementById('commaInsertProgress');
+ const topic=document.getElementById('commaInsertTopic');
+ const fill=document.getElementById('commaInsertProgressFill');
+ const prompt=document.getElementById('commaInsertPrompt');
+ const context=document.getElementById('commaInsertContext');
+ const input=document.getElementById('commaInsertInput');
+ const feedback=document.getElementById('commaInsertFeedback');
+ const check=document.getElementById('commaInsertCheck');
+ const next=document.getElementById('commaInsertNext');
+ const restart=document.getElementById('commaInsertRestart');
+ if(!q){
+  progress.textContent='Task complete'; topic.textContent='Finished'; fill.style.width='100%';
+  prompt.textContent='You’ve completed the Comma Gym!'; context.textContent='Review the explanations for any punctuation choices you found difficult.';
+  input.value=''; input.hidden=true; input.disabled=true;
+  feedback.hidden=false; feedback.className='rule-quiz-feedback good';
+  feedback.innerHTML='<p><strong>Your result: '+commaInsertScore+' / '+commaInsertQuestions.length+'</strong></p><p>Remember: commas show structure and meaning. They are not simply marks for every pause.</p>';
+  check.hidden=true; next.hidden=true; restart.hidden=false;
+  document.getElementById('commaInsertScore').textContent='Final score: '+commaInsertScore+'/'+commaInsertQuestions.length;
+  return;
+ }
+ progress.textContent='Sentence '+(commaInsertIndex+1)+' of '+commaInsertQuestions.length;
+ topic.textContent=q.topic; fill.style.width=((commaInsertIndex+1)/commaInsertQuestions.length*100)+'%';
+ prompt.textContent=q.prompt; context.textContent=q.context; input.hidden=false; input.disabled=false; input.value=q.sentence;
+ feedback.hidden=true; feedback.className='rule-quiz-feedback'; feedback.innerHTML='';
+ check.hidden=false; check.disabled=false; next.hidden=true; next.disabled=false; next.textContent=commaInsertIndex===commaInsertQuestions.length-1?'See results →':'Next sentence →';
+ restart.hidden=true; commaInsertAnswered=false;
+ document.getElementById('commaInsertScore').textContent='Score: '+commaInsertScore;
+}
+function checkCommaInsertAnswer(){
+ if(commaInsertAnswered)return;
+ const q=commaInsertQuestions[commaInsertIndex];
+ const input=document.getElementById('commaInsertInput');
+ const feedback=document.getElementById('commaInsertFeedback');
+ const submitted=normalizeInsertText(input.value);
+ if(!submitted){feedback.hidden=false;feedback.className='rule-quiz-feedback bad';feedback.innerHTML='<p>Please add the punctuation to the sentence before checking.</p>';return;}
+ const correct=submitted===normalizeInsertText(q.answer);
+ commaInsertAnswered=true; if(correct)commaInsertScore++;
+ input.value=q.answer; input.disabled=true;
+ feedback.hidden=false; feedback.className='rule-quiz-feedback '+(correct?'good':'bad');
+ feedback.innerHTML='<p><strong>'+(correct?'✓ Exactly right!':'Not quite. Here is the correct version:')+'</strong> '+q.answer+'</p><p><strong>Why:</strong> '+q.rule+'</p>';
+ document.getElementById('commaInsertCheck').disabled=true;
+ document.getElementById('commaInsertNext').hidden=false;
+ document.getElementById('commaInsertScore').textContent='Score: '+commaInsertScore;
+}
+function nextCommaInsert(){if(!commaInsertAnswered)return;commaInsertIndex++;renderCommaInsertTask();}
+function restartCommaInsert(){commaInsertIndex=0;commaInsertScore=0;commaInsertAnswered=false;renderCommaInsertTask();}
+
+function checkQuiz(sectionId){
+ const section=document.getElementById(sectionId); if(!section)return;
+ const questions=section.querySelectorAll('.mcq'); let score=0,answered=0;
+ questions.forEach(q=>{
+  const chosen=q.querySelector('input[type="radio"]:checked'); const feedback=q.querySelector('.feedback');
+  feedback.classList.remove('good','bad');
+  if(!chosen){feedback.textContent='Choose an answer, then check it.';feedback.classList.add('bad');return;}
+  answered++;
+  const explanation=q.getAttribute('data-explain')||'';
+  if(chosen.value===q.getAttribute('data-answer')){score++;feedback.textContent='✓ Correct. '+explanation;feedback.classList.add('good');}
+  else{const right=q.querySelector('input[value="'+q.getAttribute('data-answer')+'"]').closest('label').innerText.trim();feedback.textContent='Not quite. Best answer: '+right+' '+explanation;feedback.classList.add('bad');}
+ });
+ const target=document.getElementById('score-'+sectionId); if(target)target.textContent='Score: '+score+'/'+questions.length+(answered<questions.length?' · '+(questions.length-answered)+' unanswered':'');
+}
+function toggleModel(id,button){const panel=document.getElementById(id);if(!panel)return;const show=!panel.classList.contains('show');panel.classList.toggle('show',show);button.textContent=show?'Hide sample answer':'Reveal sample answer';}
+function clearWriting(){const ids=['usConvert','ukConvert','repairUS','repairUK','ownDialogue','homeworkChat','homeworkStyle'];if(confirm('Clear your written answers? This cannot be undone.')){ids.forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});}}
+document.getElementById('ruleQuizCheck')?.addEventListener('click',checkRuleQuestAnswer);
+document.getElementById('ruleQuizNext')?.addEventListener('click',nextRuleQuest);
+document.getElementById('ruleQuizRestart')?.addEventListener('click',restartRuleQuest);
+renderRuleQuest();
+document.getElementById('commaInsertCheck')?.addEventListener('click',checkCommaInsertAnswer);
+document.getElementById('commaInsertNext')?.addEventListener('click',nextCommaInsert);
+document.getElementById('commaInsertRestart')?.addEventListener('click',restartCommaInsert);
+renderCommaInsertTask();
+
+// Task 7: reveal guidance for the one quotation style the learner selects.
+document.querySelectorAll('input[name="writingStyle"]').forEach((choice)=>{
+ choice.addEventListener('change',()=>{
+  const guide=document.getElementById('writingStyleGuide');
+  if(!guide)return;
+  guide.classList.remove('hide');
+  if(choice.value==='us'){
+   guide.innerHTML='<strong>American English selected.</strong> Use double quotation marks for direct speech. In the common American style, commas and full stops generally go inside the closing quotation marks. For example: <em>“I can’t come,” Mia said.</em> A question mark that belongs to the spoken question also goes inside: <em>“Are you ready?” Alex asked.</em>';
+  }else{
+   guide.innerHTML='<strong>British English selected · logical punctuation.</strong> Use single quotation marks for direct speech. Keep punctuation inside when it belongs to the spoken words: <em>‘Are you ready?’ Alex asked.</em> When a quoted word or phrase is part of your own sentence, put a comma or full stop outside if it belongs to the surrounding sentence: <em>The ending was ‘surprisingly clever’, and I agreed.</em> In direct speech followed by a speech tag, keep the speech-tag comma inside the quotation marks: <em>‘I’m ready,’ Mia said.</em>';
+  }
+ });
+});
+
+</script>
+</body>
+</html>
